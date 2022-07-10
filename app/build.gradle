@@ -43,6 +43,7 @@ android {
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            excludes += 'META-INF/gradle/incremental.annotation.processors'
         }
     }
 }
@@ -83,16 +84,16 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
 
     //Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.3'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.3'
 
     //Coroutines Lifecycle
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.0'
 
     //Coil
-    implementation 'io.coil-kt:coil-sompose:1.4.0'
+    implementation 'io.coil-kt:coil-compose:2.1.0'
 
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
