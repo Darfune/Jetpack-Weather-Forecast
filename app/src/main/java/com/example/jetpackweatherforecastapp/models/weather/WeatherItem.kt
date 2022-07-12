@@ -1,6 +1,6 @@
-package com.example.jetpackweatherforecastapp.model.weather
+package com.example.jetpackweatherforecastapp.models.weather
 
-data class WeatherObject(
+data class WeatherItem(
     val clouds: Clouds,
     val dt: Int,
     val dt_txt: String,
@@ -9,6 +9,6 @@ data class WeatherObject(
     val rain: Rain,
     val sys: Sys,
     val visibility: Int,
-    val weather: List<WeatherX>,
+    val weather: List<WeatherObject>,
     val wind: Wind
 )

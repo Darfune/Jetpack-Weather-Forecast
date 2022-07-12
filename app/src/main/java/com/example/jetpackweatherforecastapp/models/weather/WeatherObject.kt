@@ -1,6 +1,6 @@
-package com.example.jetpackweatherforecastapp.model.weather
+package com.example.jetpackweatherforecastapp.models.weather
 
-data class WeatherX(
+data class WeatherObject(
     val description: String,
     val icon: String,
     val id: Int,
