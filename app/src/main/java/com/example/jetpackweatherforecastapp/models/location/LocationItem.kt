@@ -1,4 +1,4 @@
-package com.example.jetpackweatherforecastapp.model.location
+package com.example.jetpackweatherforecastapp.models.location
 
 data class LocationItem(
     val country: String,
