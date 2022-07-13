@@ -1,6 +1,7 @@
 package com.example.jetpackweatherforecastapp.network
 
 import com.example.jetpackweatherforecastapp.models.weather.Weather
+import com.example.jetpackweatherforecastapp.models.weather.WeatherObject
 import com.example.jetpackweatherforecastapp.utils.Constants
 import retrofit2.http.GET
 import retrofit2.http.Query
