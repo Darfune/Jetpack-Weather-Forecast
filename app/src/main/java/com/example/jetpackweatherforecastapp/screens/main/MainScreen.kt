@@ -1,13 +1,24 @@
 package com.example.jetpackweatherforecastapp.screens.main
 
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import android.util.Log
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.produceState
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import coil.compose.rememberAsyncImagePainter
+import coil.compose.rememberImagePainter
 import com.example.jetpackweatherforecastapp.data.DataOrException
 import com.example.jetpackweatherforecastapp.models.location.Location
 import com.example.jetpackweatherforecastapp.models.weather.Weather
@@ -19,7 +30,7 @@ fun MainScreen(navController: NavController,
 
     val locationData = produceState<DataOrException<Location, Boolean, Exception>>(
         initialValue = DataOrException(loading = true)) {
-        value = mainViewModel.getLocationData("London")
+        value = mainViewModel.getLocationData("Athens")
     }.value
 
 
@@ -50,5 +61,42 @@ fun MainScaffold(weather: Weather, navigationController: NavController) {
 
 @Composable
 fun MainContent(data: Weather) {
-    Text(text = data.city.name)
+
+    val imageUrl = "https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}.png"
+
+    Column(
+        Modifier
+            .padding(4.dp)
+            .fillMaxWidth(),
+    verticalArrangement = Arrangement.Center,
+    horizontalAlignment = Alignment.CenterHorizontally) {
+
+        Text(text = "Nov 29",
+            style = MaterialTheme.typography.caption,
+            color = MaterialTheme.colors.onSecondary,
+            fontWeight = FontWeight.SemiBold,
+            modifier = Modifier.padding(6.dp))
+
+        Surface(modifier = Modifier
+            .padding(4.dp)
+            .size(200.dp),
+            shape = CircleShape,
+            color = Color(0xFFFFC400)) {
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally) {
+                WeatherStateImage(imageUrl = imageUrl)
+                Text(text = "56", style = MaterialTheme.typography.h4, fontWeight = FontWeight.ExtraBold)
+                Text(text = "Snow", fontStyle = FontStyle.Italic)
+            }
+        }
+
+    }
+}
+
+@Composable
+fun WeatherStateImage(imageUrl: String) {
+    Image(painter = rememberAsyncImagePainter(imageUrl),
+        contentDescription = "icon image",
+        modifier = Modifier.size(80.dp))
 }

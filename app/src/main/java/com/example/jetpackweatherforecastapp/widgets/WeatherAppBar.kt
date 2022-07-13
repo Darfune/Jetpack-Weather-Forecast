@@ -1,15 +1,19 @@
 package com.example.jetpackweatherforecastapp.widgets
 
 import android.graphics.drawable.Icon
+import androidx.compose.foundation.clickable
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.rounded.MoreVert
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.Dp
@@ -29,7 +33,10 @@ fun WeatherAppBar(
     onButtonClicked: () -> Unit = {}){
 
     TopAppBar (title = {
-                       Text(text = title)
+                       Text(text = title,
+                           color = MaterialTheme.colors.onBackground,
+                           style = TextStyle(fontWeight = Bold,
+                               fontSize = 15.sp))
     },
         actions = {
                   if (isMainScreen){
@@ -41,7 +48,15 @@ fun WeatherAppBar(
                       }
                   } else { }
         },
-        navigationIcon = {},
+        navigationIcon = {
+                         if (icon != null) {
+                             Icon(imageVector = icon, contentDescription = null,
+                             tint = MaterialTheme.colors.onSecondary,
+                             modifier = Modifier.clickable {
+                                 onButtonClicked.invoke()
+                             })
+                         }
+        },
         backgroundColor = Color.Transparent,
         elevation = elevation)
 
