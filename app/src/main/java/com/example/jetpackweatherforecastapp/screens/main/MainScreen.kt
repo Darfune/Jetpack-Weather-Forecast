@@ -22,6 +22,7 @@ import coil.compose.rememberImagePainter
 import com.example.jetpackweatherforecastapp.data.DataOrException
 import com.example.jetpackweatherforecastapp.models.location.Location
 import com.example.jetpackweatherforecastapp.models.weather.Weather
+import com.example.jetpackweatherforecastapp.utils.formatData
 import com.example.jetpackweatherforecastapp.widgets.WeatherAppBar
 
 @Composable
@@ -71,7 +72,7 @@ fun MainContent(data: Weather) {
     verticalArrangement = Arrangement.Center,
     horizontalAlignment = Alignment.CenterHorizontally) {
 
-        Text(text = "Nov 29",
+        Text(text = formatData(data.list[0].dt),
             style = MaterialTheme.typography.caption,
             color = MaterialTheme.colors.onSecondary,
             fontWeight = FontWeight.SemiBold,
