@@ -23,6 +23,7 @@ import com.example.jetpackweatherforecastapp.data.DataOrException
 import com.example.jetpackweatherforecastapp.models.location.Location
 import com.example.jetpackweatherforecastapp.models.weather.Weather
 import com.example.jetpackweatherforecastapp.utils.formatData
+import com.example.jetpackweatherforecastapp.utils.formatDecimals
 import com.example.jetpackweatherforecastapp.widgets.WeatherAppBar
 
 @Composable
@@ -31,7 +32,7 @@ fun MainScreen(navController: NavController,
 
     val locationData = produceState<DataOrException<Location, Boolean, Exception>>(
         initialValue = DataOrException(loading = true)) {
-        value = mainViewModel.getLocationData("Athens")
+        value = mainViewModel.getLocationData("Piraeus")
     }.value
 
 
@@ -63,7 +64,8 @@ fun MainScaffold(weather: Weather, navigationController: NavController) {
 @Composable
 fun MainContent(data: Weather) {
 
-    val imageUrl = "https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}.png"
+    val currentWeather = data.list[0]
+    val imageUrl = "https://openweathermap.org/img/wn/${currentWeather.weather[0].icon}.png"
 
     Column(
         Modifier
@@ -72,7 +74,7 @@ fun MainContent(data: Weather) {
     verticalArrangement = Arrangement.Center,
     horizontalAlignment = Alignment.CenterHorizontally) {
 
-        Text(text = formatData(data.list[0].dt),
+        Text(text = formatData(currentWeather.dt),
             style = MaterialTheme.typography.caption,
             color = MaterialTheme.colors.onSecondary,
             fontWeight = FontWeight.SemiBold,
@@ -87,8 +89,11 @@ fun MainContent(data: Weather) {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally) {
                 WeatherStateImage(imageUrl = imageUrl)
-                Text(text = "56", style = MaterialTheme.typography.h4, fontWeight = FontWeight.ExtraBold)
-                Text(text = "Snow", fontStyle = FontStyle.Italic)
+                Text(text = formatDecimals(currentWeather.main.temp) + "°",
+                    style = MaterialTheme.typography.h4,
+                    fontWeight = FontWeight.ExtraBold)
+                Text(text = currentWeather.weather[0].description,
+                    fontStyle = FontStyle.Italic)
             }
         }
 
