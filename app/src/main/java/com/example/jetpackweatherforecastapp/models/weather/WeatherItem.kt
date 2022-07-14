@@ -8,7 +8,7 @@ data class WeatherItem(
     val pop: Double,
     val rain: Rain,
     val sys: Sys,
-    val visibility: Int,
+    val visibility: Double,
     val weather: List<WeatherObject>,
     val wind: Wind
 )
