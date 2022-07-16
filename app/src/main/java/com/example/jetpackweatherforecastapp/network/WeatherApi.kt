@@ -15,7 +15,7 @@ interface WeatherApi {
         @Query("lat") latitude: Double,
         @Query("lon") longitude: Double,
         @Query("units") units: String = "metric",
-        @Query("cnt") cnt: Int = 7,
+        @Query("cnt") cnt: Int? = null,
         @Query("appid") appid: String = Constants.API_KEY
     ) : Weather
 
