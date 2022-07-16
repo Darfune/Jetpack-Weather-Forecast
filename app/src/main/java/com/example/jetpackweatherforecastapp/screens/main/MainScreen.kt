@@ -84,7 +84,7 @@ fun MainContent(data: Weather) {
     verticalArrangement = Arrangement.Center,
     horizontalAlignment = Alignment.CenterHorizontally) {
 
-        Text(text = formatData(currentWeather.dt).split(".")[0],
+        Text(text = formatData(currentWeather.dt).split(":")[0],
             style = MaterialTheme.typography.caption,
             color = MaterialTheme.colors.onSecondary,
             fontWeight = FontWeight.SemiBold,
@@ -146,7 +146,7 @@ fun WeatherDetailRow(weather: WeatherItem) {
         horizontalArrangement = Arrangement.SpaceBetween) {
             Text(formatData(weather.dt)
                 .split(",")[0] + formatData(weather.dt)
-                .split(".")[1],
+                .split(":")[1] + ":00",
             modifier = Modifier.padding(start = 5.dp))
             WeatherStateImage(imageUrl = imageUrl)
             Surface(modifier = Modifier.padding(0.dp),
