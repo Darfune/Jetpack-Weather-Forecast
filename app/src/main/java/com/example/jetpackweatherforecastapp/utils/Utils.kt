@@ -6,7 +6,7 @@ import java.util.*
 
 @SuppressLint("SimpleDateFormat")
 fun formatData(timestamp: Int): String {
-    val sdf = SimpleDateFormat("EEE, MMM, d")
+    val sdf = SimpleDateFormat("EEE, MMM, d. HH:i")
     val date = Date(timestamp.toLong() * 1000)
 
     return sdf.format(date)
