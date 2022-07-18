@@ -30,6 +30,7 @@ import com.example.jetpackweatherforecastapp.data.DataOrException
 import com.example.jetpackweatherforecastapp.models.location.Location
 import com.example.jetpackweatherforecastapp.models.weather.Weather
 import com.example.jetpackweatherforecastapp.models.weather.WeatherItem
+import com.example.jetpackweatherforecastapp.navigation.WeatherScreens
 import com.example.jetpackweatherforecastapp.utils.formatData
 import com.example.jetpackweatherforecastapp.utils.formatDateTime
 import com.example.jetpackweatherforecastapp.utils.formatDecimals
@@ -65,6 +66,9 @@ fun MainScaffold(weather: Weather, navigationController: NavController) {
     Scaffold(topBar = {
         WeatherAppBar(title = weather.city.name + " ,${weather.city.country}",
             navController = navigationController,
+            onAddActionClicked = {
+                navigationController.navigate(WeatherScreens.SearchScreen.name)
+            },
             elevation = 5.dp)
     }) {
         MainContent(data = weather)
