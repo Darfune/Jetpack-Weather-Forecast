@@ -38,12 +38,15 @@ import com.example.jetpackweatherforecastapp.widgets.*
 import java.text.SimpleDateFormat
 
 @Composable
-fun MainScreen(navController: NavController,
-               mainViewModel: MainViewModel = hiltViewModel()) {
+fun MainScreen(
+    navController: NavController,
+    mainViewModel: MainViewModel = hiltViewModel(),
+    city: String?
+) {
 
     val locationData = produceState<DataOrException<Location, Boolean, Exception>>(
         initialValue = DataOrException(loading = true)) {
-        value = mainViewModel.getLocationData("Piraeus")
+        value = mainViewModel.getLocationData(city.toString())
     }.value
 
 

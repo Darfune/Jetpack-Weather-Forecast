@@ -1,5 +1,6 @@
 package com.example.jetpackweatherforecastapp.screens.search
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,6 +25,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.jetpackweatherforecastapp.navigation.WeatherScreens
 import com.example.jetpackweatherforecastapp.widgets.WeatherAppBar
 
 @Composable
@@ -40,7 +42,12 @@ fun SearchScreen(navController: NavController) {
         Surface() {
             Column(verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally) {
-
+                SearchBar(modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+                    .align(Alignment.CenterHorizontally)){ city ->
+                    navController.navigate(WeatherScreens.MainScreen.name + "/$city")
+                }
             }
         }
     }
@@ -49,6 +56,7 @@ fun SearchScreen(navController: NavController) {
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SearchBar(
+    modifier: Modifier,
     onSearch: (String) -> Unit = {}) {
 
     val searchQueryState = rememberSaveable {
@@ -64,10 +72,12 @@ fun SearchBar(
     Column{
         CommonTextField(
             valueState = searchQueryState,
-            placeHolder = "Piraeus",
+            placeHolder = "City Name",
             onAction = KeyboardActions {
                 if (!valid) return@KeyboardActions
                 onSearch(searchQueryState.value.trim())
+                searchQueryState.value = ""
+                keyboardController?.hide()
             }
         )
     }
