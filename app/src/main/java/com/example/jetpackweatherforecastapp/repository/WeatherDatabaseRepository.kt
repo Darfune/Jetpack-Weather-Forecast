@@ -24,7 +24,7 @@ class WeatherDatabaseRepository @Inject constructor(private val weatherDao: Weat
     //Units
     fun getUnits(): Flow<List<Unit>> = weatherDao.getUnits()
 
-    suspend fun insertUnit(favorite: Favorite) = weatherDao.insertFavorite(favorite)
+    suspend fun insertUnit(unit: Unit) = weatherDao.insertUnit(unit)
 
     suspend fun updateUnit(unit: Unit) = weatherDao.upadateUnit(unit)
 
