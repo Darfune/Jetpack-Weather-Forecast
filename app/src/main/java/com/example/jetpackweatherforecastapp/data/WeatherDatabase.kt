@@ -2,7 +2,7 @@ package com.example.jetpackweatherforecastapp.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.jetpackweatherforecastapp.models.location.Favorite
+import com.example.jetpackweatherforecastapp.models.favorite.Favorite
 
 @Database(entities = [Favorite::class], version = 1, exportSchema = false)
 abstract class WeatherDatabase: RoomDatabase() {

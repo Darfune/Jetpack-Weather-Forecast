@@ -1,7 +1,7 @@
 package com.example.jetpackweatherforecastapp.data
 
 import androidx.room.*
-import com.example.jetpackweatherforecastapp.models.location.Favorite
+import com.example.jetpackweatherforecastapp.models.favorite.Favorite
 import kotlinx.coroutines.flow.Flow
 
 @Dao

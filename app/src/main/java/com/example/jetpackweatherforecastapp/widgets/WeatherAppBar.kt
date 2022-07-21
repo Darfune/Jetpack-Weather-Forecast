@@ -24,11 +24,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.jetpackweatherforecastapp.models.location.Favorite
-import com.example.jetpackweatherforecastapp.navigation.WeatherNavigation
+import com.example.jetpackweatherforecastapp.models.favorite.Favorite
 import com.example.jetpackweatherforecastapp.navigation.WeatherScreens
 import com.example.jetpackweatherforecastapp.screens.favorites.FavoriteViewModel
 

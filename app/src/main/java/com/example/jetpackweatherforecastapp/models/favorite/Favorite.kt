@@ -1,4 +1,4 @@
-package com.example.jetpackweatherforecastapp.models.location
+package com.example.jetpackweatherforecastapp.models.favorite
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo

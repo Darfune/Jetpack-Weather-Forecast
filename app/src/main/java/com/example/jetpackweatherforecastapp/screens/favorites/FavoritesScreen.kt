@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.example.jetpackweatherforecastapp.models.location.Favorite
+import com.example.jetpackweatherforecastapp.models.favorite.Favorite
 import com.example.jetpackweatherforecastapp.navigation.WeatherScreens
 import com.example.jetpackweatherforecastapp.widgets.WeatherAppBar
 

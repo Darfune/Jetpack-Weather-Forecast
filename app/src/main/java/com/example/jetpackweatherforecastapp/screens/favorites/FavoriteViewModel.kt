@@ -3,7 +3,7 @@ package com.example.jetpackweatherforecastapp.screens.favorites
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.jetpackweatherforecastapp.models.location.Favorite
+import com.example.jetpackweatherforecastapp.models.favorite.Favorite
 import com.example.jetpackweatherforecastapp.repository.WeatherDatabaseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
