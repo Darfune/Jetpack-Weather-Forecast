@@ -2,10 +2,13 @@ package com.example.jetpackweatherforecastapp.data
 
 import androidx.room.*
 import com.example.jetpackweatherforecastapp.models.favorite.Favorite
+import com.example.jetpackweatherforecastapp.models.unit.Unit
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface WeatherDao {
+
+    //Favorites
     @Query("SELECT * from fav_tbl")
     fun getFavorites(): Flow<List<Favorite>>
 
@@ -23,4 +26,20 @@ interface WeatherDao {
 
     @Delete
     suspend fun deleteFavorite(favorite: Favorite)
+
+    //Units
+    @Query("SELECT * from settings_tbl")
+    fun getUnits(): Flow<List<Unit>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertUnit(unit: Unit)
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upadateUnit(unit: Unit)
+
+    @Query("DELETE from settings_tbl")
+    suspend fun deleteAllUnits()
+
+    @Delete
+    suspend fun deleteUnit(unit: Unit)
 }
