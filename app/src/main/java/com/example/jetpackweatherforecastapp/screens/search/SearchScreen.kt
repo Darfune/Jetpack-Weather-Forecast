@@ -1,6 +1,6 @@
 package com.example.jetpackweatherforecastapp.screens.search
 
-import android.util.Log
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,7 +19,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -28,6 +27,7 @@ import androidx.navigation.NavController
 import com.example.jetpackweatherforecastapp.navigation.WeatherScreens
 import com.example.jetpackweatherforecastapp.widgets.WeatherAppBar
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun SearchScreen(navController: NavController) {
     Scaffold(topBar = {

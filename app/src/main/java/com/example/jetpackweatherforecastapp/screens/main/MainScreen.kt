@@ -1,11 +1,10 @@
 package com.example.jetpackweatherforecastapp.screens.main
 
-import androidx.compose.foundation.Image
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -13,29 +12,19 @@ import androidx.compose.runtime.produceState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import coil.compose.rememberAsyncImagePainter
-import coil.compose.rememberImagePainter
-import com.example.jetpackweatherforecastapp.R
 import com.example.jetpackweatherforecastapp.data.DataOrException
 import com.example.jetpackweatherforecastapp.models.location.Location
 import com.example.jetpackweatherforecastapp.models.weather.Weather
 import com.example.jetpackweatherforecastapp.models.weather.WeatherItem
 import com.example.jetpackweatherforecastapp.navigation.WeatherScreens
 import com.example.jetpackweatherforecastapp.utils.formatData
-import com.example.jetpackweatherforecastapp.utils.formatDateTime
 import com.example.jetpackweatherforecastapp.utils.formatDecimals
 import com.example.jetpackweatherforecastapp.widgets.*
-import java.text.SimpleDateFormat
 
 @Composable
 fun MainScreen(
@@ -64,6 +53,7 @@ fun MainScreen(
 
 }
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MainScaffold(weather: Weather, navigationController: NavController) {
     Scaffold(topBar = {

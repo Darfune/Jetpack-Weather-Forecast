@@ -1,6 +1,6 @@
 package com.example.jetpackweatherforecastapp.screens.about
 
-import androidx.compose.foundation.clickable
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,6 +19,7 @@ import androidx.navigation.NavHostController
 import com.example.jetpackweatherforecastapp.R
 import com.example.jetpackweatherforecastapp.widgets.WeatherAppBar
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun AboutScreen(navController: NavHostController) {
     Scaffold(topBar = {

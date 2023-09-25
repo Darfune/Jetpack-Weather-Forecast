@@ -13,7 +13,7 @@ class WeatherDatabaseRepository @Inject constructor(private val weatherDao: Weat
 
     suspend fun insertFavorite(favorite: Favorite) = weatherDao.insertFavorite(favorite)
 
-    suspend fun updateFavorite(favorite: Favorite) = weatherDao.upadateFavorite(favorite)
+    suspend fun updateFavorite(favorite: Favorite) = weatherDao.updateFavorite(favorite)
 
     suspend fun deleteAllFavorites() = weatherDao.deleteAllFavorites()
 
@@ -26,7 +26,7 @@ class WeatherDatabaseRepository @Inject constructor(private val weatherDao: Weat
 
     suspend fun insertUnit(unit: Unit) = weatherDao.insertUnit(unit)
 
-    suspend fun updateUnit(unit: Unit) = weatherDao.upadateUnit(unit)
+    suspend fun updateUnit(unit: Unit) = weatherDao.updateUnit(unit)
 
     suspend fun deleteAllUnits() = weatherDao.deleteAllUnits()
 

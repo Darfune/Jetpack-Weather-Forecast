@@ -19,7 +19,7 @@ interface WeatherDao {
     suspend fun insertFavorite(favorite: Favorite)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun upadateFavorite(favorite: Favorite)
+    suspend fun updateFavorite(favorite: Favorite)
 
     @Query("DELETE from fav_tbl")
     suspend fun deleteAllFavorites()
@@ -35,7 +35,7 @@ interface WeatherDao {
     suspend fun insertUnit(unit: Unit)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun upadateUnit(unit: Unit)
+    suspend fun updateUnit(unit: Unit)
 
     @Query("DELETE from settings_tbl")
     suspend fun deleteAllUnits()

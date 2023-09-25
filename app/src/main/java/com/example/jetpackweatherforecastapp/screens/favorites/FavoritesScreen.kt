@@ -1,5 +1,6 @@
 package com.example.jetpackweatherforecastapp.screens.favorites
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -22,6 +23,7 @@ import com.example.jetpackweatherforecastapp.models.favorite.Favorite
 import com.example.jetpackweatherforecastapp.navigation.WeatherScreens
 import com.example.jetpackweatherforecastapp.widgets.WeatherAppBar
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun FavoritesScreen(navController: NavHostController, favoriteViewModel: FavoriteViewModel = hiltViewModel()) {
     Scaffold(topBar = {
